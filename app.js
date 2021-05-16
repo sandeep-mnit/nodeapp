@@ -1,9 +1,10 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-var mongoose = require("mongoose");
 const bodyparser  = require("body-parser")
-mongoose.connect('mongodb://localhost/contactDance', {useNewUrlParser: true});
+var mongoose = require("mongoose");
+// mongoose.connect('mongodb://localhost/contactDance', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://sandeep:sandeep1234@cluster0.rytxp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true})
 const port = 8001;
 
 // DEFINE MONGOOSE SCHEMA
@@ -43,7 +44,8 @@ app.get('/contact', (req,res)=>{
 app.post('/contact', (req,res)=>{
     var myData = new contact(req.body);
     myData.save().then(()=>{
-        res.send("This item has been saved");
+        // res.send("This item has been saved");
+        res.send("This item has been saved" + myData);
     }).catch(()=>{
         res.status(400).send("Item was not saved to the database")
     });
