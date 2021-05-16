@@ -3,8 +3,15 @@ const path = require("path");
 const app = express();
 const bodyparser  = require("body-parser")
 var mongoose = require("mongoose");
-// mongoose.connect('mongodb://localhost/contactDance', {useNewUrlParser: true});
-mongoose.connect('mongodb+srv://sandeep:sandeep1234@cluster0.rytxp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true})
+// mongoose.connect('mongodb://localhost/contactDance', {useNewUrlParser: true });
+mongoose.connect('mongodb+srv://sandeep:sandeep1234@cluster0.rytxp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true})
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://sandeep:sandeep1234@cluster0.rytxp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+
 const port = 8001;
 
 // DEFINE MONGOOSE SCHEMA
@@ -46,8 +53,9 @@ app.post('/contact', (req,res)=>{
     myData.save().then(()=>{
         // res.send("This item has been saved");
         res.send("This item has been saved" + myData);
-    }).catch(()=>{
-        res.status(400).send("Item was not saved to the database")
+    }).catch((e)=>{
+        console.log(e)
+        res.status(400).send("Item was not saved to the database"+e)
     });
 
     // res.status(200).render('contact.pug');
