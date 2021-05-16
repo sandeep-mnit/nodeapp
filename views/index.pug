@@ -1,0 +1,58 @@
+doctype html
+html 
+    head 
+        title Harry Dance Academy 
+        style 
+            include ../static/style.css
+    body 
+        nav#navbar
+            ul 
+                div#logo
+                    img(src="static/img/logo.png")
+                    | HDA
+                li #[a(href="/") Home]
+                li #[a(href="/") About]
+                li #[a(href="/") Services]
+                li #[a(href="/") Class Info]
+                li #[a(href="/contact") Contact Us]
+
+        section#introSection
+            div welcome to harry dance academy 
+            div.small eat sleep dance repeat 
+        
+        section#missionSection
+            h2 our mission 
+            div.card
+                h3 dance perfection 
+                div.card-box
+                    div.card-img
+                        img(src="/static/img/1.png")
+                    div.card-content
+                        p This is the best dance academy 
+            div.card
+                h3 dance the way you like 
+                div.card-box
+                    div.card-img
+                        img(src="/static/img/2.png")
+                    div.card-content
+                        p This is the best dance academy
+            div.card
+                h3 Expert teaching
+                div.card-box
+                    div.card-img
+                        img(src="/static/img/3.png")
+                    div.card-content
+                        p This is the best dance academy 
+
+        section#sponsersSection
+            h2 our sponsers 
+            div#sponsers
+                img(src="/static/img/logo1.png", alt="sponser Image", class="spImage")
+                img(src="/static/img/logo2.png", alt="sponser Image", class="spImage")
+                img(src="/static/img/logo3.png", alt="sponser Image", class="spImage")
+                img(src="/static/img/logo4.png", alt="sponser Image", class="spImage")
+
+        footer#footer
+            | copyright 
+        script 
+            include ../static/index.js
